@@ -1,1 +1,609 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Research Project Title</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+    }
+    
+    .hero-body {
+      padding: 3rem 1.5rem;
+    }
+    
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    
+    .publication-authors {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    
+    .publication-venue {
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+    
+    .task-suite {
+      margin-bottom: 3rem;
+    }
+    
+    .task-suite-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #363636;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #3273dc;
+    }
+    
+    .task-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .task-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .task-name {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #3273dc;
+      margin-bottom: 0.5rem;
+    }
+    
+    .task-instructions {
+      color: #4a4a4a;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    
+    .video-container {
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .video-container video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .button.is-link {
+      background-color: #3273dc;
+    }
+    
+    .section {
+      padding: 3rem 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="publication-title">History Matters: Rethinking Benchmarks and Memory Design for
+            Vision-Language-Action Models</h1>
+          <div class="publication-authors">
+            <span class="author-block">Anonymous Authors</span>
+          </div>
+          <div class="publication-venue" style="margin-top: 1rem;">
+            Under Review
+          </div>
+
+          <!-- Links -->
+          <div class="column has-text-centered" style="margin-top: 1.5rem;">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#" class="button is-link is-rounded">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="button is-link is-rounded">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="button is-link is-rounded">
+                  <span class="icon"><i class="fas fa-database"></i></span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Memory is essential for robotic manipulation tasks that require reasoning beyond the current observation, such as occlusion handling, repeated action counting, and referential instruction following. 
+Recent Vision-Language-Action (VLA) models incorporate memory through external memory banks, history tokens, or language subgoals, achieving promising gains on selected long-horizon tasks. However, these methods are evaluated on limited tasks and heterogeneous settings, making it unclear which memory mechanisms truly address different forms of history-dependent reasoning.
+We introduce <b>HistoryBench</b>, a large-scale benchmark of 16 manipulation tasks that systematically evaluate four functional memory types: temporal, spatial, object, and procedural memory.
+To analyze memory representations, we construct a family of memory-augmented VLA variants based on $\pi_{0.5}$ that integrate symbolic, perceptual, and recurrent memory under multiple mechanisms. Experiments reveal clear task-memory correspondences and trade-offs across representations and integration strategies. Together, HistoryBench and these structured VLA variants provide a standardized foundation for studying memory-aware VLA models in long-horizon manipulation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Simulation Tasks -->
+<section class="section" style="background-color: #f5f5f5;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">HistoryBench Task Examples</h2>
+    
+    <!-- Task Suite 1 -->
+    <div class="task-suite">
+      <h3 class="task-suite-title">Suite 1: Counting</h3>
+      
+      <!-- Task 1.1 -->
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 1.1: BinFill</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Put two red cubes into the bin and press the button to stop.
+            </div>
+            <div class="task-instructions">
+                <strong>Challenge:</strong> streaming cubes
+              </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/BinFill.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Task 1.2 -->
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 1.2: PickXtimes</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Pick up the green cube and place it on the target, repeating this action two times, then press the button to stop.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/PickXtimes.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Task 1.3 -->
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 1.3: SwingXtimes</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Pick up the red cube, move it to the top of the right-side target, then move it to the top of the left-side target, repeating this back-and-forth motion two times, finally press the button to stop.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/SwingXtimes.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Task 1.4 -->
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 1.4: StopCube</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Press the button to stop the cube just as it reaches the target for the third time.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/StopCube.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task Suite 2 -->
+    <div class="task-suite">
+      <h3 class="task-suite-title">Suite 2: Permenance</h3>
+      
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 2.1: VideoUnmask</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then pick up the container hiding the green cube.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/VideoUnmask.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Add 3 more tasks for Suite 2 following the same pattern -->
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 2.2: ButtonUnmask</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> First press the button, then pick up the container hiding the green cube, finally pick up another container hiding the red cube.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/ButtonUnmask.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 2.3: VideoUnmaskSwap</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then pick up the container hiding the green cube, finally pick up another container hiding the red cube.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/VideoUnmaskSwap.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 2.4: ButtonUnmaskSwap</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> First press both buttons on the table, then pick up the container hiding the red cube.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/ButtonUnmaskSwap.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task Suite 3 -->
+    <div class="task-suite">
+      <h3 class="task-suite-title">Suite 3: Reference</h3>
+      
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 3.1: PickHighlight</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> First press the button, then pick up all highlighted cubes, finally press the button again to stop.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/PickHighlight.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tasks 3.2-3.4 -->
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 3.2: VideoRepick</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then pick up the same block that was previously picked up for three times, finally press the button to stop.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/VideoRepick.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 3.3: VideoPlaceButton</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully and place the blue block on the target it was previously placed on right before the button was pressed.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/VideoPlaceButton.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 3.4: VideoPlaceOrder</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully and place the green block on first target it was previously placed on.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/VideoPlaceOrder.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task Suite 4 -->
+    <div class="task-suite">
+      <h3 class="task-suite-title">Suite 4: Imitation</h3>
+      
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 4.1: MoveCube</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then move the cube to the target in the same manner as before
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/MoveCube.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tasks 4.2-4.4 -->
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 4.2: InsertPeg</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then grasp the same end of the same peg you've picked and insert it into the same side of the box
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/InsertPeg.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 4.3: PatternTrace</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then use the stick attached to the robot to retrace the same pattern.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/PatternLock.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-card">
+        <div class="columns">
+          <div class="column is-7">
+            <div class="task-name">Task 4.4: RouteStick</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then use the stick attached to the robot to navigate around the sticks on the table, following the same path.
+            </div>
+          </div>
+          <div class="column is-5">
+            <div class="video-container">
+              <video autoplay muted loop playsinline>
+                <source src="video/RouteStick.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Real Robot Tasks -->
+<section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Real Robot Tasks</h2>
+      
+      <!-- Real Robot Task Suite -->
+      <div class="task-suite">
+        <h3 class="task-suite-title">Rollout Demos</h3>
+        
+        <!-- Real Robot Task 1 -->
+        <div class="task-card">
+          <div class="columns">
+            <div class="column is-5">
+              <div class="task-name">Real Robot Task 1: Put Fruits</div>
+              <div class="task-instructions">
+                <strong>Instruction:</strong> Put 4 fruits from the basket into the bin.
+              </div>
+            </div>
+            <div class="column is-7">
+              <div class="video-container">
+                <video autoplay muted loop playsinline>
+                  <source src="video/real_put_fruits.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Real Robot Task 2 -->
+        <div class="task-card">
+          <div class="columns">
+            <div class="column is-5">
+              <div class="task-name">Real Robot Task 2: Track Cube</div>
+              <div class="task-instructions">
+                <strong>Instruction:</strong> Pick up the cup that hides the red cube.
+              </div>
+            </div>
+            <div class="column is-7">
+              <div class="video-container">
+                <video autoplay muted loop playsinline>
+                  <source src="video/real_track_cube.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Real Robot Task 3 -->
+        <div class="task-card">
+          <div class="columns">
+            <div class="column is-5">
+              <div class="task-name">Real Robot Task 3: Repick Block</div>
+              <div class="task-instructions">
+                <strong>Instruction:</strong> Pick up all the blocks that have been picked up before.
+              </div>
+            </div>
+            <div class="column is-7">
+              <div class="video-container">
+                <video autoplay muted loop playsinline>
+                  <source src="video/real_repick_block.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Real Robot Task 4 -->
+        <div class="task-card">
+          <div class="columns">
+            <div class="column is-5">
+              <div class="task-name">Real Robot Task 4: Draw Pattern</div>
+              <div class="task-instructions">
+                <strong>Instruction:</strong> Replicate the same path as before in the video.
+              </div>
+            </div>
+            <div class="column is-7">
+              <div class="video-container">
+                <video autoplay muted loop playsinline>
+                  <source src="video/real_draw_pattern.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Add more real robot tasks as needed -->
+      </div>
+  
+    </div>
+  </section>
+  
+<!-- Citation -->
+<!-- <section class="section">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{historybench2025,
+  title={HistoryBench},
+  author={Anonymous},
+  journal={Under Review},
+  year={2025}
+}</code></pre>
+  </div>
+</section> -->
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
