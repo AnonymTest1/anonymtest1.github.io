@@ -36,25 +36,32 @@
     }
     
     .task-suite {
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
     
     .task-suite-title {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: bold;
       color: #363636;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
       border-bottom: 2px solid #3273dc;
+    }
+    
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
     }
     
     .task-card {
       background: white;
       border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
+      padding: 0.8rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
     }
     
     .task-card:hover {
@@ -63,21 +70,44 @@
     }
     
     .task-name {
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       font-weight: bold;
       color: #3273dc;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
     
     .task-instructions {
       color: #4a4a4a;
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      line-height: 1.5;
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    .task-card-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .video-wrapper {
+      flex-grow: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .task-grid {
+        grid-template-columns: 1fr;
+      }
     }
     
     .video-container {
       border-radius: 4px;
       overflow: hidden;
+      width: 100%;
+      padding-bottom: 1.2rem; /* Reserve space for caption */
+      position: relative;
     }
     
     .video-container video {
@@ -92,10 +122,17 @@
     }
     
     .video-caption {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       color: #f7220a;
-      margin-top: 0.3rem;
       font-style: italic;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    
+    .container.is-widescreen {
+      max-width: 1344px;
     }
     
     .button.is-link {
@@ -103,7 +140,7 @@
     }
     
     .section {
-      padding: 3rem 1.5rem;
+      padding: 2rem 1.5rem;
     }
   </style>
 </head>
@@ -175,43 +212,35 @@ To analyze memory representations, we construct a family of memory-augmented VLA
 
 <!-- Simulation Tasks -->
 <section class="section" style="background-color: #f5f5f5;">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">HistoryBench Examples</h2>
+  <div class="container is-widescreen">
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 1.5rem;">HistoryBench Examples</h2>
     
     <!-- Task Suite 1 -->
     <div class="task-suite">
       <h3 class="task-suite-title">Suite 1: Counting</h3>
-      
-      <!-- Task 1.1 -->
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 1.1: BinFill</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Put two green cubes into the bin and press the button to stop.
-            </div>
+      <div class="task-grid">
+        <!-- Task 1.1 -->
+        <div class="task-card">
+          <div class="task-name">Task 1.1: BinFill</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Put two green cubes into the bin and press the button to stop.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/BinFill.mp4" type="video/mp4">
-                Your browser does not support the video tag.
               </video>
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Task 1.2 -->
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 1.2: PickXtimes</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Pick up the blue cube and place it on the target, repeating this action three times, then press the button to stop.
-            </div>
+        
+        <!-- Task 1.2 -->
+        <div class="task-card">
+          <div class="task-name">Task 1.2: PickXtimes</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Pick up the blue cube and place it on the target, repeating this action three times, then press the button to stop.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/PickXtimes.mp4" type="video/mp4">
@@ -219,18 +248,14 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Task 1.3 -->
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 1.3: SwingXtimes</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Pick up the red cube, move it to the top of the right-side target, then move it to the top of the left-side target, repeating this back-and-forth motion three times, finally put down the cube and press the button to stop.
-            </div>
+        
+        <!-- Task 1.3 -->
+        <div class="task-card">
+          <div class="task-name">Task 1.3: SwingXtimes</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Pick up the red cube, move it to the top of the right-side target, then move it to the top of the left-side target, repeating this back-and-forth motion three times, finally put down the cube and press the button to stop.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/SwingXtimes.mp4" type="video/mp4">
@@ -238,18 +263,14 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Task 1.4 -->
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 1.4: StopCube</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Press the button to stop the cube just as it reaches the target for the third time.
-            </div>
+        
+        <!-- Task 1.4 -->
+        <div class="task-card">
+          <div class="task-name">Task 1.4: StopCube</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Press the button to stop the cube just as it reaches the target for the third time.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/StopCube.mp4" type="video/mp4">
@@ -262,17 +283,14 @@ To analyze memory representations, we construct a family of memory-augmented VLA
 
     <!-- Task Suite 2 -->
     <div class="task-suite">
-      <h3 class="task-suite-title">Suite 2: Permenance</h3>
-      
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 2.1: VideoUnmask</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Watch the video carefully, then pick up the container hiding the green cube.
-            </div>
+      <h3 class="task-suite-title">Suite 2: Permanence</h3>
+      <div class="task-grid">
+        <div class="task-card">
+          <div class="task-name">Task 2.1: VideoUnmask</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Watch the video carefully, then pick up the container hiding the green cube.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/VideoUnmask.mp4" type="video/mp4">
@@ -281,18 +299,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Add 3 more tasks for Suite 2 following the same pattern -->
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 2.2: ButtonUnmask</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> First press the button, then pick up the container hiding the green cube, finally pick up another container hiding the red cube.
-            </div>
+        
+        <div class="task-card">
+          <div class="task-name">Task 2.2: ButtonUnmask</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> First press the button, then pick up the container hiding the green cube, finally pick up another container hiding the red cube.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/ButtonUnmask.mp4" type="video/mp4">
@@ -300,17 +313,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 2.3: VideoUnmaskSwap</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Watch the video carefully, then pick up the container hiding the blue cube, finally pick up another container hiding the red cube.
-            </div>
+        <div class="task-card">
+          <div class="task-name">Task 2.3: VideoUnmaskSwap</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Watch the video carefully, then pick up the container hiding the blue cube, finally pick up another container hiding the red cube.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/VideoUnmaskSwap.mp4" type="video/mp4">
@@ -319,17 +328,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 2.4: ButtonUnmaskSwap</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> First press both buttons on the table, then pick up the container hiding the red cube.
-            </div>
+        <div class="task-card">
+          <div class="task-name">Task 2.4: ButtonUnmaskSwap</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> First press both buttons on the table, then pick up the container hiding the red cube.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/ButtonUnmaskSwap.mp4" type="video/mp4">
@@ -343,16 +348,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
     <!-- Task Suite 3 -->
     <div class="task-suite">
       <h3 class="task-suite-title">Suite 3: Reference</h3>
-      
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 3.1: PickHighlight</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> First press the button, then pick up all highlighted cubes, finally press the button again to stop.
-            </div>
+      <div class="task-grid">
+        <div class="task-card">
+          <div class="task-name">Task 3.1: PickHighlight</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> First press the button, then pick up all highlighted cubes, finally press the button again to stop.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/PickHighlight.mp4" type="video/mp4">
@@ -360,18 +362,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tasks 3.2-3.4 -->
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 3.2: VideoRepick</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Watch the video carefully, then pick up the same cube that was previously picked up for two times, finally press the button to stop.
-            </div>
+        <div class="task-card">
+          <div class="task-name">Task 3.2: VideoRepick</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Watch the video carefully, then pick up the same cube that was previously picked up for two times, finally press the button to stop.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/VideoRepick.mp4" type="video/mp4">
@@ -380,17 +377,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 3.3: VideoPlaceButton</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Watch the video carefully and place the blue cube on the target it was previously placed on right before the button was pressed.
-            </div>
+        <div class="task-card">
+          <div class="task-name">Task 3.3: VideoPlaceButton</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Watch the video carefully and place the blue cube on the target it was previously placed on right before the button was pressed.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/VideoPlaceButton.mp4" type="video/mp4">
@@ -399,17 +392,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 3.4: VideoPlaceOrder</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Watch the video carefully and place the green cube on the third target it was previously placed on.
-            </div>
+        <div class="task-card">
+          <div class="task-name">Task 3.4: VideoPlaceOrder</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Watch the video carefully and place the green cube on the third target it was previously placed on.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/VideoPlaceOrder.mp4" type="video/mp4">
@@ -424,16 +413,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
     <!-- Task Suite 4 -->
     <div class="task-suite">
       <h3 class="task-suite-title">Suite 4: Imitation</h3>
-      
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 4.1: MoveCube</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Watch the video carefully, then move the cube to the target in the same manner as before
-            </div>
+      <div class="task-grid">
+        <div class="task-card">
+          <div class="task-name">Task 4.1: MoveCube</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Watch the video carefully, then move the cube to the target in the same manner as before.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/MoveCube.mp4" type="video/mp4">
@@ -441,18 +427,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Tasks 4.2-4.4 -->
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 4.2: InsertPeg</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Watch the video carefully, then grasp the same end of the same peg you've picked and insert it into the same side of the box
-            </div>
+        <div class="task-card">
+          <div class="task-name">Task 4.2: InsertPeg</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Watch the video carefully, then grasp the same end of the same peg you've picked and insert it into the same side of the box.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/InsertPeg.mp4" type="video/mp4">
@@ -460,17 +441,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 4.3: PatternLock</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Watch the video carefully, then use the stick attached to the robot to retrace the same pattern.
-            </div>
+        <div class="task-card">
+          <div class="task-name">Task 4.3: PatternLock</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Watch the video carefully, then use the stick attached to the robot to retrace the same pattern.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/PatternLock.mp4" type="video/mp4">
@@ -478,17 +455,13 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="task-card">
-        <div class="columns">
-          <div class="column is-7">
-            <div class="task-name">Task 4.4: RouteStick</div>
-            <div class="task-instructions">
-              <strong>Instruction:</strong> Watch the video carefully, then use the stick attached to the robot to navigate around the sticks on the table, following the same path.
-            </div>
+        <div class="task-card">
+          <div class="task-name">Task 4.4: RouteStick</div>
+          <div class="task-instructions">
+            <strong>Instruction:</strong> Watch the video carefully, then use the stick attached to the robot to navigate around the sticks on the table, following the same path.
           </div>
-          <div class="column is-5">
+          <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/RouteStick.mp4" type="video/mp4">
@@ -505,43 +478,35 @@ To analyze memory representations, we construct a family of memory-augmented VLA
 
 <!-- Real Robot Tasks -->
 <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered" style="margin-bottom: 2rem;">Real Robot Experiments</h2>
+    <div class="container is-widescreen">
+      <h2 class="title is-3 has-text-centered" style="margin-bottom: 1.5rem;">Real Robot Experiments</h2>
       
       <!-- Real Robot Task Suite -->
       <div class="task-suite">
         <h3 class="task-suite-title">Rollout Demos</h3>
-        
-        <!-- Real Robot Task 1 -->
-        <div class="task-card">
-          <div class="columns">
-            <div class="column is-5">
-              <div class="task-name">Task 1: Put Fruits</div>
-              <div class="task-instructions">
-                <strong>Instruction:</strong> Put 4 fruits from the basket into the bin and press the button to stop.
-              </div>
+        <div class="task-grid">
+          <!-- Real Robot Task 1 -->
+          <div class="task-card">
+            <div class="task-name">Task 1: Put Fruits</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Put 4 fruits from the basket into the bin and press the button to stop.
             </div>
-            <div class="column is-7">
+            <div class="video-wrapper">
               <div class="video-container">
                 <video autoplay muted loop playsinline controls>
                   <source src="video/real_put_fruits.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
                 </video>
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Real Robot Task 2 -->
-        <div class="task-card">
-          <div class="columns">
-            <div class="column is-5">
-              <div class="task-name">Task 2: Track Cube</div>
-              <div class="task-instructions">
-                <strong>Instruction:</strong> Watch the video carefully, then pick up the cup that hides the red cube.
-              </div>
+          
+          <!-- Real Robot Task 2 -->
+          <div class="task-card">
+            <div class="task-name">Task 2: Track Cube</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then pick up the cup that hides the red cube.
             </div>
-            <div class="column is-7">
+            <div class="video-wrapper">
               <div class="video-container">
                 <video autoplay muted loop playsinline controls>
                   <source src="video/real_track_cube.mp4" type="video/mp4">
@@ -550,18 +515,14 @@ To analyze memory representations, we construct a family of memory-augmented VLA
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Real Robot Task 3 -->
-        <div class="task-card">
-          <div class="columns">
-            <div class="column is-5">
-              <div class="task-name">Task 3: Repick Block</div>
-              <div class="task-instructions">
-                <strong>Instruction:</strong> Watch the video carefully, then pick up all the blocks that have been picked up before.
-              </div>
+          
+          <!-- Real Robot Task 3 -->
+          <div class="task-card">
+            <div class="task-name">Task 3: Repick Block</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then pick up all the blocks that have been picked up before.
             </div>
-            <div class="column is-7">
+            <div class="video-wrapper">
               <div class="video-container">
                 <video autoplay muted loop playsinline controls>
                   <source src="video/real_repick_block.mp4" type="video/mp4">
@@ -570,18 +531,14 @@ To analyze memory representations, we construct a family of memory-augmented VLA
               </div>
             </div>
           </div>
-        </div>
-        
-        <!-- Real Robot Task 4 -->
-        <div class="task-card">
-          <div class="columns">
-            <div class="column is-5">
-              <div class="task-name">Task 4: Draw Pattern</div>
-              <div class="task-instructions">
-                <strong>Instruction:</strong> Watch the video carefully, then replicate the same path.
-              </div>
+          
+          <!-- Real Robot Task 4 -->
+          <div class="task-card">
+            <div class="task-name">Task 4: Draw Pattern</div>
+            <div class="task-instructions">
+              <strong>Instruction:</strong> Watch the video carefully, then replicate the same path.
             </div>
-            <div class="column is-7">
+            <div class="video-wrapper">
               <div class="video-container">
                 <video autoplay muted loop playsinline controls>
                   <source src="video/real_draw_pattern.mp4" type="video/mp4">
@@ -591,8 +548,6 @@ To analyze memory representations, we construct a family of memory-augmented VLA
             </div>
           </div>
         </div>
-        
-        <!-- Add more real robot tasks as needed -->
       </div>
   
     </div>
