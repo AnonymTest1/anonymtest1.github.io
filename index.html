@@ -152,8 +152,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="publication-title">History Matters: Rethinking Benchmarks and Memory Design for
-            Vision-Language-Action Models</h1>
+          <h1 class="publication-title">RoboMME: Benchmarking and Understanding Memory Representations for Vision-Language-Action Models</h1>
           <div class="publication-authors">
             <span class="author-block">Anonymous Authors</span>
           </div>
@@ -199,10 +198,13 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Memory is essential for robotic manipulation tasks that require reasoning beyond the current observation, such as occlusion handling, repeated action counting, and referential instruction following. 
-Recent Vision-Language-Action (VLA) models incorporate memory through external memory banks, history tokens, or language subgoals, achieving promising gains on selected long-horizon tasks. However, these methods are evaluated on limited tasks and heterogeneous settings, making it unclear which memory mechanisms truly address different forms of history-dependent reasoning.
-We introduce <b>HistoryBench</b>, a large-scale benchmark of 16 manipulation tasks that systematically evaluate four functional memory types: temporal, spatial, object, and procedural memory.
-To analyze memory representations, we construct a family of memory-augmented VLA variants based on $\pi_{0.5}$ that integrate symbolic, perceptual, and recurrent memory under multiple mechanisms. Experiments reveal clear task-memory correspondences and trade-offs across representations and integration strategies. Together, HistoryBench and these structured VLA variants provide a standardized foundation for studying memory-aware VLA models in long-horizon manipulation.
+Memory is critical for robotic manipulation tasks that depend on a history of observations, including action repetition, referential reasoning, and intermittent visual occlusions.
+Recent Vision-Language-Action (VLA) models have begun to incorporate memory through mechanisms such as language-based subgoals and multi-frame observations, demonstrating improvements on specific tasks.
+However, their evaluation remains confined to narrow, non-standardized settings, limiting systematic understanding, comparisons, and progress measurement. 
+To address these challenges, we first introduce <b>RoboMME</b>: a large-scale benchmark comprising <b>16</b> manipulation tasks constructed under a carefully-designed taxonomy to rigorously evaluate temporal, spatial, object, and procedural memory.
+Furthermore, we develop a suite of <b>18 memory-augmented VLA variants</b> built on the $\pi_{0.5}$ backbone, to systematically explore different memory representations across multiple integration strategies.
+Extensive experiments show that memory representation effectiveness is highly task-dependent, with each design offering distinct advantages and limitations across memory types. 
+Together, RoboMME and our structured study establish a standardized framework for evaluating and advancing VLA models in long-horizon, history-dependent scenarios.
           </p>
         </div>
       </div>
@@ -213,11 +215,11 @@ To analyze memory representations, we construct a family of memory-augmented VLA
 <!-- Simulation Tasks -->
 <section class="section" style="background-color: #f5f5f5;">
   <div class="container is-widescreen">
-    <h2 class="title is-3 has-text-centered" style="margin-bottom: 1.5rem;">HistoryBench Examples</h2>
+    <h2 class="title is-3 has-text-centered" style="margin-bottom: 1.5rem;">RoboMME Examples</h2>
     
     <!-- Task Suite 1 -->
     <div class="task-suite">
-      <h3 class="task-suite-title">Suite 1: Counting</h3>
+      <h3 class="task-suite-title">Task Suite 1: Counting</h3>
       <div class="task-grid">
         <!-- Task 1.1 -->
         <div class="task-card">
@@ -283,7 +285,7 @@ To analyze memory representations, we construct a family of memory-augmented VLA
 
     <!-- Task Suite 2 -->
     <div class="task-suite">
-      <h3 class="task-suite-title">Suite 2: Permanence</h3>
+      <h3 class="task-suite-title">Task Suite 2: Permanence</h3>
       <div class="task-grid">
         <div class="task-card">
           <div class="task-name">Task 2.1: VideoUnmask</div>
@@ -347,7 +349,7 @@ To analyze memory representations, we construct a family of memory-augmented VLA
 
     <!-- Task Suite 3 -->
     <div class="task-suite">
-      <h3 class="task-suite-title">Suite 3: Reference</h3>
+      <h3 class="task-suite-title">Task Suite 3: Reference</h3>
       <div class="task-grid">
         <div class="task-card">
           <div class="task-name">Task 3.1: PickHighlight</div>
@@ -412,7 +414,7 @@ To analyze memory representations, we construct a family of memory-augmented VLA
 
     <!-- Task Suite 4 -->
     <div class="task-suite">
-      <h3 class="task-suite-title">Suite 4: Imitation</h3>
+      <h3 class="task-suite-title">Task Suite 4: Imitation</h3>
       <div class="task-grid">
         <div class="task-card">
           <div class="task-name">Task 4.1: MoveCube</div>
