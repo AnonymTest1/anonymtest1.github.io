@@ -106,7 +106,7 @@
       border-radius: 4px;
       overflow: hidden;
       width: 100%;
-      padding-bottom: 1.2rem; /* Reserve space for caption */
+      padding-bottom: 1.5rem; /* Reserve space for caption */
       position: relative;
     }
     
@@ -122,13 +122,17 @@
     }
     
     .video-caption {
-      font-size: 0.7rem;
+      font-size: 0.85rem;
       color: #f7220a;
       font-style: italic;
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
+    }
+    
+    .video-caption.caption-black {
+      color: #333;
     }
     
     .container.is-widescreen {
@@ -240,7 +244,7 @@ Together, RoboMME and our structured study establish a standardized framework fo
         <div class="task-card">
           <div class="task-name">Task 1.2: PickXtimes</div>
           <div class="task-instructions">
-            <strong>Instruction:</strong> Pick up the blue cube and place it on the target, repeating this action three times, then press the button to stop.
+            <strong>Instruction:</strong> Pick up the blue cube and place it on the target, repeating this pick-and-place action three times, then press the button to stop.
           </div>
           <div class="video-wrapper">
             <div class="video-container">
@@ -255,13 +259,14 @@ Together, RoboMME and our structured study establish a standardized framework fo
         <div class="task-card">
           <div class="task-name">Task 1.3: SwingXtimes</div>
           <div class="task-instructions">
-            <strong>Instruction:</strong> Pick up the red cube, move it to the right-side target and then to the left-side target, repeating this right-to-left sequence three times, then put down the cube and press the button to stop.
+            <strong>Instruction:</strong> Pick up the red cube, move it to the right-side target and then to the left-side target, repeating this right-to-left swing motion three times, then put down the cube and press the button to stop.
           </div>
           <div class="video-wrapper">
             <div class="video-container">
               <video autoplay muted loop playsinline controls>
                 <source src="video/SwingXtimes.mp4" type="video/mp4">
               </video>
+              <div class="video-caption caption-black">Spatial directions (e.g., left/right) follow the robot base coordinate frame.</div>
             </div>
           </div>
         </div>
@@ -270,7 +275,7 @@ Together, RoboMME and our structured study establish a standardized framework fo
         <div class="task-card">
           <div class="task-name">Task 1.4: StopCube</div>
           <div class="task-instructions">
-            <strong>Instruction:</strong> Press the button immediately when the cube reaches the target for the third time..
+            <strong>Instruction:</strong> Press the button to stop the cube exactly at the target on its third visit.
           </div>
           <div class="video-wrapper">
             <div class="video-container">
@@ -383,7 +388,7 @@ Together, RoboMME and our structured study establish a standardized framework fo
         <div class="task-card">
           <div class="task-name">Task 3.3: VideoPlaceButton</div>
           <div class="task-instructions">
-            <strong>Instruction:</strong> Watch the video carefully and place the blue cube on the same target it occupied immediately <b>before</b> the button was pressed.
+            <strong>Instruction:</strong> Watch the video carefully and place the blue cube on the target where it was placed <b>immediately before</b> the button was pressed.
           </div>
           <div class="video-wrapper">
             <div class="video-container">
@@ -398,7 +403,7 @@ Together, RoboMME and our structured study establish a standardized framework fo
         <div class="task-card">
           <div class="task-name">Task 3.4: VideoPlaceOrder</div>
           <div class="task-instructions">
-            <strong>Instruction:</strong> Watch the video carefully and place the green cube on the <b>third</b> target it was placed on in the video.
+            <strong>Instruction:</strong> Watch the video carefully and place the green cube on the <b>third</b> target where it was placed.
           </div>
           <div class="video-wrapper">
             <div class="video-container">
