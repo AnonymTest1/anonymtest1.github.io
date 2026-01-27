@@ -156,7 +156,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="publication-title">RoboMME: Benchmarking and Understanding Memory Representations for Vision-Language-Action Models</h1>
+          <h1 class="publication-title">RoboMME: Benchmarking and Understanding Memory for Robotic Generalist Policies</h1>
           <div class="publication-authors">
             <span class="author-block">Anonymous Authors</span>
           </div>
@@ -202,13 +202,16 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-Memory is critical for robotic manipulation tasks that depend on a history of observations, including action repetition, referential reasoning, and intermittent visual occlusions.
-Recent Vision-Language-Action (VLA) models have begun to incorporate memory through mechanisms such as language-based subgoals and multi-frame observations, demonstrating improvements on specific tasks.
-However, their evaluation remains confined to narrow, non-standardized settings, limiting systematic understanding, comparisons, and progress measurement. 
-To address these challenges, we first introduce <b>RoboMME</b>: a large-scale benchmark comprising <b>16</b> manipulation tasks constructed under a carefully-designed taxonomy to rigorously evaluate temporal, spatial, object, and procedural memory.
-Furthermore, we develop a suite of <b>18 memory-augmented VLA variants</b> built on the $\pi_{0.5}$ backbone, to systematically explore different memory representations across multiple integration strategies.
-Extensive experiments show that memory representation effectiveness is highly task-dependent, with each design offering distinct advantages and limitations across memory types. 
-Together, RoboMME and our structured study establish a standardized framework for evaluating and advancing VLA models in long-horizon, history-dependent scenarios.
+            Memory is critical for robotic manipulation tasks that depend on a history of observations, such as executing actions a specified number of times or manipulating objects temporarily occluded from view.
+            Recent vision-language-action (VLA) models have begun to incorporate memory through mechanisms such as language-based subgoals and multi-frame observations, demonstrating improvements on specific tasks.
+            However, their evaluation remains confined to narrow, non-standardized settings, limiting systematic understanding, comparisons, and progress measurement. 
+            To address these challenges, we first introduce <b>RoboMME</b>: a large-scale benchmark comprising <b>16</b> manipulation tasks constructed under a carefully-designed taxonomy to rigorously evaluate temporal, spatial, object, and procedural memory.
+            Furthermore, we develop a suite of <b>14</b> memory-augmented VLA variants built on the $\pi_{0.5}$ backbone to systematically explore different memory representations across multiple integration strategies.
+            Empirical results show that memory representation effectiveness is highly task-dependent, with each design offering distinct advantages and limitations across different tasks. 
+            Together, <b>RoboMME</b> and our structured study establish a standardized framework for evaluating and advancing VLA models in long-horizon, history-dependent scenarios.
+
+
+
           </p>
         </div>
       </div>
@@ -494,7 +497,7 @@ Together, RoboMME and our structured study establish a standardized framework fo
       
       <!-- Real Robot Task Suite -->
       <div class="task-suite">
-        <h3 class="task-suite-title">Rollout Demos</h3>
+        <h3 class="task-suite-title">MME-VLA w/ Perceptual Memory Rollout Demos</h3>
         <div class="task-grid">
           <!-- Real Robot Task 1 -->
           <div class="task-card">
