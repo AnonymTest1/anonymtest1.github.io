@@ -337,16 +337,18 @@
     <figure class="image" style="max-width: 1200px; margin: 0 auto;">
       <img src="image/robomme_bench.jpg" alt="RoboMME Benchmark Overview" style="width: 100%; display: block;">
       <figcaption style="margin-top: 1rem; text-align: justify; color: #4a4a4a; font-size: 0.95rem; line-height: 1.35; max-width: 1200px; margin-left: auto; margin-right: auto;">
-        <b>RoboMME</b> is a large-scale robotic benchmark for <b>M</b>emory-augmented <b>M</b>anipulation <b>E</b>valuation, comprising four task suites that emphasize distinct memory demands.
-        (1) The <b><i>Counting</i></b> suite targets <b><i>temporal memory</i></b>, requiring robots to accumulate and reason over past events, e.g., counting placed green cubes and stopping correctly (top-left).
-        (2) The <b><i>Permanence</i></b> suite focuses on <b><i>spatial memory</i></b>, requiring tracking of object locations under occlusion and environmental changes, e.g., resolving the correct mask after green and blue cubes swap positions (top-right).
-        (3) The <b><i>Reference</i></b> suite evaluates <b><i>object memory</i></b>, requiring identification under varied referential cues, e.g., recalling a briefly highlighted cube during a button press (bottom-left).
-        (4) The <b><i>Imitation</i></b> suite assesses <b><i>procedural memory</i></b>, measuring the ability to reproduce previously demonstrated behaviors, e.g., replicating a demonstrated trajectory (bottom-right).
-        Overall, <b></b>RoboMME</b> includes <b>16</b> tasks with <b>773k</b> high-quality training timesteps for systematic evaluation of memory-augmented robotic policies.
+        <b>RoboMME</b> is a large-scale, cognitively-motivated <b>Robo</b>tic benchmark for <b>M</b>emory-augmented <b>M</b>anipulation <b>E</b>valuation, comprising four task suites that emphasize distinct memory demands.
+        (1) The <b><i>Counting</i></b> task suite targets <b><i>temporal memory</i></b>, requiring robots to accumulate and reason over past events, e.g., counting placed green cubes and stopping correctly (top-left).
+        (2) The <b><i>Permanence</i></b> task suite focuses on <b><i>spatial memory</i></b>, requiring tracking of object locations under occlusion and environmental changes, e.g., resolving the correct mask after green and blue cubes swap positions (top-right).
+        (3) The <b><i>Reference</i></b> task suite evaluates <b><i>object memory</i></b>, requiring identification under varied referential cues, e.g., recalling a briefly highlighted cube during a button press (bottom-left).
+        (4) The <b><i>Imitation</i></b> task suite assesses <b><i>procedural memory</i></b>, measuring the ability to reproduce previously demonstrated behaviors, e.g., replicating a demonstrated trajectory (bottom-right).
+        Overall, <b></b>RoboMME</b> includes <b>16</b> tasks with <b>773k</b> high-quality training timesteps for systematic evaluation of memory-augmented robotic generalist policies.
       </figcaption>
     </figure>
   </div>
 </section>
+
+<!-- <b>RoboMME</b> is a cognitively motivated, large-scale <b>Robo</b>tic benchmark for systematic <b>M</b>emory-augmented <b>M</b>anipulation <b>E</b>valuation. It comprises four task suites, <i>Counting</i>, <i>Permanence</i>, <i>Reference</i>, and <i>Imitation</i>, that target temporal, spatial, object, and procedural memory, for a total of <b>16</b> tasks and <b>773k</b> training timesteps. -->
 
 <!-- Abstract -->
 <section class="section">
@@ -377,10 +379,10 @@
     <!-- Tab Navigation -->
     <div class="tabs-container">
       <div class="task-tabs">
-        <button class="task-tab active" data-tab="counting">Suite 1: Counting</button>
-        <button class="task-tab" data-tab="permanence">Suite 2: Permanence</button>
-        <button class="task-tab" data-tab="reference">Suite 3: Reference</button>
-        <button class="task-tab" data-tab="imitation">Suite 4: Imitation</button>
+        <button class="task-tab active" data-tab="counting">Task Suite 1: Counting</button>
+        <button class="task-tab" data-tab="permanence">Task Suite 2: Permanence</button>
+        <button class="task-tab" data-tab="reference">Task Suite 3: Reference</button>
+        <button class="task-tab" data-tab="imitation">Task Suite 4: Imitation</button>
       </div>
     </div>
 
@@ -671,7 +673,7 @@
         <figure class="image" style="max-width: 1200px; margin: 0 auto;">
           <img src="image/model_design.jpg" alt="MME-VLA Architecture" style="width: 100%; display: block;">
           <figcaption style="margin-top: 1rem; text-align: justify; color: #4a4a4a; font-size: 0.95rem; line-height: 1.35; max-width: 1200px; margin-left: auto; margin-right: auto;">
-            <b>Framework of MME-VLA Suite.</b> The top part illustrates three memory representations, each with two instantiations: (1) <b><i>Symbolic Memory</i></b> summarizes past interactions as high-level abstractions via language-based subgoals, optionally grounded to image pixels; (2) <b><i>Perceptual Memory</i></b> encodes history as raw visual tokens, using either token dropping to remove redundancy or uniform frame sampling to preserve essential context; (3) <b><i>Recurrent Memory</i></b> compresses history into fixed-size latent states through test-time training or recurrent memory transformers. The bottom part shows three end-to-end integration mechanisms for perceptual and recurrent memory</sub>: (1) <b><i>Memory-as-Context</i></b> concatenates memory tokens with observation tokens (e.g., images, task instructions, and proprioception); (2) <b><i>Memory-as-Modulator</i></b> applies adaptive LayerNorm to modulate the action expert, where action features cross-attend to memory tokens via multi-head attention; (3) <b><i>Memory-as-Expert</i></b> adds a separate lightweight memory expert that interacts with other experts through block-wise causal attention. Symbolic memory is integrated by simple concatenation with language tokens, without  π<sub>0.5</sub>  architectural modification (not shown in the figure).
+            <b>Framework of MME-VLA Suite.</b> The top part illustrates three memory representations, each with two instantiations: (1) <b><i>Symbolic Memory</i></b> summarizes past interactions as high-level abstractions via language-based subgoals, optionally grounded to image pixels; (2) <b><i>Perceptual Memory</i></b> encodes history as raw visual tokens, using either token dropping to remove redundancy or uniform frame sampling to preserve essential context; (3) <b><i>Recurrent Memory</i></b> compresses history into fixed-size latent states through test-time training or recurrent memory transformers. The bottom part shows three end-to-end integration mechanisms for differentiable memory (perceptual and recurrent): (1) <b><i>Memory-as-Context</i></b> directly concatenates memory tokens with observation tokens; (2) <b><i>Memory-as-Modulator</i></b> applies adaptive LayerNorm to modulate the action expert; (3) <b><i>Memory-as-Expert</i></b> adds a separate lightweight memory expert that interacts with other experts through block-wise causal attention. Symbolic memory is integrated by simple concatenation with language tokens, without  π<sub>0.5</sub>  architectural modification (not shown in the figure).
           </figcaption>
         </figure>
       </div>
@@ -687,10 +689,10 @@
 
     <!-- MME-VLA Variants Description -->
     <div style="color: #4a4a4a; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
-      <p style="margin-bottom: 1rem; margin-left: 4.5rem;">In our experiments, we fine-tune a total of <b>14 memory-augmented VLA</b> variants based on π<sub>0.5</sub> and prepare 3 different subgoal predictors for symbolic memory:</p>
+      <p style="margin-bottom: 1rem; margin-left: 4.5rem;">We fine-tune a total of <b>14 memory-augmented VLA</b> variants based on π<sub>0.5</sub>:</p>
       
       <ul style="margin-left: 6rem; max-width: 1150px; font-size: 0.95rem; line-height: 1.6; list-style-type: disc;">
-        <li style="margin-bottom: 0.5rem;"><b>Symbolic:</b> <span style="font-variant: small-caps;">SimpleSG</span> (Simple Subgoal) or <span style="font-variant: small-caps;">GroundSG</span> (Grounded Subgoal) combined with <code>Gemini</code> (prompt-based Gemini-2.5-Pro), <code>QwenVL</code> (fine-tuned Qwen3-VL-4B), or <code>Oracle</code> (simulator ground-truth) subgoal predictors → <b>2 VLA variants × 3 subgoal predictors</b></li>
+        <li style="margin-bottom: 0.5rem;"><b>Symbolic:</b> <span style="font-variant: small-caps;">SimpleSG</span> (Simple Subgoal) or <span style="font-variant: small-caps;">GroundSG</span> (Grounded Subgoal) combined with <code>Gemini</code> (prompt-based Gemini-2.5-Pro), <code>QwenVL</code> (fine-tuned Qwen3-VL-4B), or <code>Oracle</code> (simulator ground-truth) subgoal predictors → <b>2 VLA variants & 3 subgoal predictors</b></li>
         <li style="margin-bottom: 0.5rem;"><b>Perceptual:</b> <span style="font-variant: small-caps;">TokenDrop</span> (Token dropping) or <span style="font-variant: small-caps;">FrameSamp</span> (Frame sampling) combined with <code>Context</code>, <code>Modul</code>, or <code>Expert</code> integration → <b>2 × 3 = 6 VLA variants</b></li>
         <li style="margin-bottom: 0.5rem;"><b>Recurrent:</b> <span style="font-variant: small-caps;">TTT</span> (Test-Time Training) or <span style="font-variant: small-caps;">RMT</span> (Recurrent Memory Transformer) combined with <code>Context</code>, <code>Modul</code>, or <code>Expert</code> integration → <b>2 × 3 = 6 VLA variants</b></li>
       </ul>
