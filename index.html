@@ -248,13 +248,23 @@
       margin-top: 0.5rem;
     }
     
+    /* Simulation Rollout Demos: larger task name */
+    .sim-demo-content .demo-task-header > span:first-child {
+      font-size: 1.2rem;
+    }
     /* Simulation Rollout Demos: whole tab section 70% width, centered */
     .sim-rollout-container {
       max-width: 70%;
       margin-left: auto;
       margin-right: auto;
     }
-    /* Simulation demo: task block full width within container (already constrained above) */
+    /* Simulation Rollout Demos: tab bar same width as task rows */
+    .sim-rollout-container .tabs-container {
+      max-width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Simulation demo: task block same width as tab bar */
     .sim-demo-content .sim-task-row {
       max-width: 70%;
       margin-left: auto;
@@ -282,6 +292,10 @@
     }
     .real-video-row .video-col .real-video {
       margin-top: auto;
+    }
+    /* Real Robot: larger task goal text */
+    .real-task-row .task-goal {
+      font-size: 1.1rem !important;
     }
   </style>
 </head>
@@ -313,13 +327,13 @@
               <span class="link-block">
                 <a href="#" class="button is-link is-rounded">
                   <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code</span>
+                  <span>Code(Coming Soon)</span>
                 </a>
               </span>
               <span class="link-block">
                 <a href="#" class="button is-link is-rounded">
                   <span class="icon"><i class="fas fa-database"></i></span>
-                  <span>Dataset</span>
+                  <span>Dataset(Coming Soon)</span>
                 </a>
               </span>
             </div>
@@ -692,9 +706,9 @@
       <p style="margin-bottom: 1rem; margin-left: 4.5rem;">We fine-tune a total of <b>14 memory-augmented VLA</b> variants based on π<sub>0.5</sub>:</p>
       
       <ul style="margin-left: 6rem; max-width: 1150px; font-size: 0.95rem; line-height: 1.6; list-style-type: disc;">
-        <li style="margin-bottom: 0.5rem;"><b>Symbolic:</b> <span style="font-variant: small-caps;">SimpleSG</span> (Simple Subgoal) or <span style="font-variant: small-caps;">GroundSG</span> (Grounded Subgoal) combined with <code>Gemini</code> (prompt-based Gemini-2.5-Pro), <code>QwenVL</code> (fine-tuned Qwen3-VL-4B), or <code>Oracle</code> (simulator ground-truth) subgoal predictors → <b>2 VLA variants & 3 subgoal predictors</b></li>
-        <li style="margin-bottom: 0.5rem;"><b>Perceptual:</b> <span style="font-variant: small-caps;">TokenDrop</span> (Token dropping) or <span style="font-variant: small-caps;">FrameSamp</span> (Frame sampling) combined with <code>Context</code>, <code>Modul</code>, or <code>Expert</code> integration → <b>2 × 3 = 6 VLA variants</b></li>
-        <li style="margin-bottom: 0.5rem;"><b>Recurrent:</b> <span style="font-variant: small-caps;">TTT</span> (Test-Time Training) or <span style="font-variant: small-caps;">RMT</span> (Recurrent Memory Transformer) combined with <code>Context</code>, <code>Modul</code>, or <code>Expert</code> integration → <b>2 × 3 = 6 VLA variants</b></li>
+        <li style="margin-bottom: 0.5rem;"><b>Symbolic:</b> <span style="font-variant: small-caps;">SimpleSG</span> (Simple Subgoal) or <span style="font-variant: small-caps;">GroundSG</span> (Grounded Subgoal), combined with <code>Gemini</code> (prompt-based Gemini-2.5-Pro), <code>QwenVL</code> (fine-tuned Qwen3-VL-4B), or <code>Oracle</code> (simulator ground-truth) subgoal predictors → <b>2 VLA variants & 3 subgoal predictors</b></li>
+        <li style="margin-bottom: 0.5rem;"><b>Perceptual:</b> <span style="font-variant: small-caps;">TokenDrop</span> (Token dropping) or <span style="font-variant: small-caps;">FrameSamp</span> (Frame sampling), combined with <code>Context</code> (memory-as-context), <code>Modul</code> (memory-as-modulator), or <code>Expert</code> (memory-as-expert) integration mechanisms → <b>2 × 3 = 6 VLA variants</b></li>
+        <li style="margin-bottom: 0.5rem;"><b>Recurrent:</b> <span style="font-variant: small-caps;">TTT</span> (Test-Time Training) or <span style="font-variant: small-caps;">RMT</span> (Recurrent Memory Transformer), combined with <code>Context</code> (memory-as-context), <code>Modul</code> (memory-as-modulator), or <code>Expert</code> (memory-as-expert) integration mechanisms → <b>2 × 3 = 6 VLA variants</b></li>
       </ul>
       
       <table style="width: auto; max-width: 900px; margin: 1rem auto; border-collapse: collapse; font-size: 0.95rem;">
@@ -724,7 +738,7 @@
         </tr>
       </table>
 
-      <p style="margin-left: 4.5rem; font-size: 0.95rem;">Naming Convention: <span style="font-variant: small-caps;">Method</span>+<code>Integration Mechanism/Subgoal Predictor</code>, e.g., <span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code> or <span style="font-variant: small-caps;">SimpleSG</span>+<code>QwenVL</code></p>
+      <p style="margin-left: 15rem; font-size: 0.95rem; margin-right: 4.5rem;">Naming Convention: <span style="font-variant: small-caps;">Method</span>+<code>Integration Mechanism/Subgoal Predictor</code>, e.g., <span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code> or <span style="font-variant: small-caps;">SimpleSG</span>+<code>QwenVL</code></p>
     </div>
 
     <div class="findings-grid" style="display: flex; flex-direction: column; gap: 1rem; max-width: 1000px; margin: 1rem auto 0 auto;">
@@ -783,8 +797,8 @@
           <div class="finding-caption" style="margin-bottom: 1rem; color: #4a4a4a; font-size: 1.05rem; line-height: 1.6;">
             <p style="margin-bottom: 0.75rem;"><b>Perceptual memory achieves the best efficiency-performance balance:</b></p>
             <ul style="margin-left: 1.5rem; list-style-type: disc;">
-              <li style="margin-bottom: 0.5rem;"><b><span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code></b>: consistent gains with modest cost increase</li>
-              <li style="margin-bottom: 0.5rem;"><b><span style="font-variant: small-caps;">GroundSG</span>+<code>QwenVL</code></b>: ~3× computation of π<sub>0.5</sub></li>
+              <li style="margin-bottom: 0.5rem;"><b><span style="font-variant: small-caps;">FrameSamp</span>/<span style="font-variant: small-caps;">TokenDrop</span>+<code>Modul</code></b>: consistent gains with modest cost increase</li>
+              <li style="margin-bottom: 0.5rem;"><b><span style="font-variant: small-caps;">SimpleSG</span>/<span style="font-variant: small-caps;">GroundSG</span>+<code>QwenVL</code></b>: ~3× computation of π<sub>0.5</sub></li>
               <li style="margin-bottom: 0.5rem;"><b>MemER <a href="https://arxiv.org/abs/2510.20328" target="_blank" style="color: #3273dc;">(Sridhar et al., 2025)</a></b>: ~5× computation of π<sub>0.5</sub></li>
             </ul>
           </div>
@@ -801,14 +815,14 @@
         </summary>
         <div style="margin-top: 0.5rem; background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
           <div class="finding-caption" style="margin-bottom: 1rem; color: #4a4a4a; font-size: 1.05rem; line-height: 1.6;">
-            <p style="margin-bottom: 0.75rem;"><b>Yes</b>. We evaluate four real-world tasks designed to mirror simulation tasks:</p>
+            <p style="margin-bottom: 0.75rem;"><b>Yes</b>. We evaluate four real-world tasks designed to mirror simulation tasks on each task suite:</p>
             <ul style="margin-left: 1.5rem; margin-bottom: 1rem; list-style-type: disc;">
-              <li style="margin-bottom: 0.5rem;"><i>PutFruits</i> → <i>BinFill</i></li>
-              <li style="margin-bottom: 0.5rem;"><i>TrackCube</i> → <i>VideoUnmask(Swap)</i></li>
-              <li style="margin-bottom: 0.5rem;"><i>RepickBlock</i> → <i>VideoRepick</i></li>
-              <li style="margin-bottom: 0.5rem;"><i>DrawPattern</i> → <i>DrawPattern</i></li>
+              <li style="margin-bottom: 0.5rem;"><b>Counting</b>: <i>PutFruits</i> → <i>BinFill</i></li>
+              <li style="margin-bottom: 0.5rem;"><b>Permanence</b>: <i>TrackCube</i> → <i>VideoUnmask(Swap)</i></li>
+              <li style="margin-bottom: 0.5rem;"><b>Reference</b>: <i>RepickBlock</i> → <i>VideoRepick</i></li>
+              <li style="margin-bottom: 0.5rem;"><b>Imitation</b>: <i>DrawPattern</i> → <i>DrawPattern</i></li>
             </ul>
-            <p><b>The results exhibit similar patterns:</b> <b>Symbolic memory</b> performs best on counting (<i>PutFruits</i>), while <b>Perceptual memory</b> excels on motion-centric tasks (<i>DrawPattern</i>). On the remaining tasks, both achieve comparable performance.</p>
+            <p><b>The results exhibit similar patterns:</b> <b>Symbolic Memory</b> performs best on counting (<i>PutFruits</i>), while <b>Perceptual Memory</b> excels on motion-centric tasks (<i>DrawPattern</i>). On the remaining tasks, both achieve comparable performance.</p>
           </div>
           <figure class="image" style="max-width: 100%; margin: 0 auto 1rem auto;">
             <img src="image/real_world_tasks.jpg" alt="Real World Tasks" style="width: 100%; display: block; border-radius: 4px;">
@@ -871,6 +885,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -898,6 +913,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -938,6 +954,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -965,6 +982,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1001,7 +1019,7 @@
           <div class="demo-video-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
-                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul">FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
+                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_oracle">GroundSG+Oracle</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul">FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/swingxtimes/ep1_pi05.mp4" type="video/mp4">
@@ -1009,7 +1027,7 @@
             </div>
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
-                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul" selected>FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
+                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_oracle">GroundSG+Oracle</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul" selected>FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/swingxtimes/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1030,7 +1048,7 @@
           <div class="demo-video-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
-                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul">FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
+                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_oracle">GroundSG+Oracle</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul">FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/stopcube/ep1_pi05.mp4" type="video/mp4">
@@ -1038,7 +1056,7 @@
             </div>
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
-                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul" selected>FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
+                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_oracle">GroundSG+Oracle</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul" selected>FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/stopcube/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1068,6 +1086,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1095,6 +1114,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1134,6 +1154,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1161,6 +1182,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1201,6 +1223,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1228,6 +1251,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1268,6 +1292,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1295,6 +1320,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1340,6 +1366,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1367,6 +1394,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1406,6 +1434,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1433,6 +1462,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1472,6 +1502,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1499,6 +1530,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1538,6 +1570,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1565,6 +1598,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1610,6 +1644,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1637,6 +1672,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1676,6 +1712,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1703,6 +1740,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1742,6 +1780,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1769,6 +1808,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1808,6 +1848,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1835,6 +1876,7 @@
                 <option value="simplesg_oracle">SimpleSG+Oracle</option>
                 <option value="simplesg_gemini">SimpleSG+Gemini</option>
                 <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">GroundSG+Oracle</option>
                 <option value="groundsg_gemini">GroundSG+Gemini</option>
                 <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
                 <option value="tokendrop_context">TokenDrop+Context</option>
@@ -1862,7 +1904,7 @@
     </div>
 
     <!-- The task goals come from an earlier version of the dataset used for training. Although the wording differs slightly from the final version, this should not affect the results. -->
-    <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem; line-height: 1.4; margin-left: 12rem;">For demonstration purposes, we show only the first 10 episodes for each task (the full evaluation contains 50 episodes). Red-bordered frames denote the video-based initial observation prior to execution. For GroundSG policy that requires grounded subgoal prediction, we also annotate the grounding information as yellow dots on the front-view images for visualization.</p>
+    <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem; line-height: 1.4; margin-left: 11rem; margin-right: 11rem;">For demonstration purposes, we visualize only the first 10 episodes for each task (the full evaluation contains 50). Red-bordered frames indicate the video-based initial observation before execution. For the GroundSG policy, we overlay the predicted grounding as yellow dots on the front-view images for visualization.</p>
 
 
   </div>
@@ -1899,16 +1941,16 @@
         <!-- Bottom: Two videos side by side -->
         <div class="real-video-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div class="video-col">
-            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code></div>
+            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">GroundSG</span>+<code>QwenVL</code></div>
             <video class="real-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
-              <source src="video/real/put_fruits/ep1_framesamp_modul.mp4" type="video/mp4">
+              <source src="video/real/put_fruits/ep1_groundsg_qwenvl.mp4" type="video/mp4">
             </video>
             <div class="result-label-container"></div>
           </div>
           <div class="video-col">
-            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">GroundSG</span>+<code>QwenVL</code></div>
+            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code></div>
             <video class="real-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
-              <source src="video/real/put_fruits/ep1_groundsg_qwenvl.mp4" type="video/mp4">
+              <source src="video/real/put_fruits/ep1_framesamp_modul.mp4" type="video/mp4">
             </video>
             <div class="result-label-container"></div>
           </div>
@@ -1939,16 +1981,16 @@
         <!-- Bottom: Two videos side by side -->
         <div class="real-video-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div class="video-col">
-            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code></div>
+            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">GroundSG</span>+<code>QwenVL</code></div>
             <video class="real-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
-              <source src="video/real/track_cube/ep1_framesamp_modul.mp4" type="video/mp4">
+              <source src="video/real/track_cube/ep1_groundsg_qwenvl.mp4" type="video/mp4">
             </video>
             <div class="result-label-container"></div>
           </div>
           <div class="video-col">
-            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">GroundSG</span>+<code>QwenVL</code></div>
+            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code></div>
             <video class="real-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
-              <source src="video/real/track_cube/ep1_groundsg_qwenvl.mp4" type="video/mp4">
+              <source src="video/real/track_cube/ep1_framesamp_modul.mp4" type="video/mp4">
             </video>
             <div class="result-label-container"></div>
           </div>
@@ -1979,16 +2021,16 @@
         <!-- Bottom: Two videos side by side -->
         <div class="real-video-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div class="video-col">
-            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code></div>
+            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">GroundSG</span>+<code>QwenVL</code></div>
             <video class="real-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
-              <source src="video/real/repick_block/ep1_framesamp_modul.mp4" type="video/mp4">
+              <source src="video/real/repick_block/ep1_groundsg_qwenvl.mp4" type="video/mp4">
             </video>
             <div class="result-label-container"></div>
           </div>
           <div class="video-col">
-            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">GroundSG</span>+<code>QwenVL</code></div>
+            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code></div>
             <video class="real-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
-              <source src="video/real/repick_block/ep1_groundsg_qwenvl.mp4" type="video/mp4">
+              <source src="video/real/repick_block/ep1_framesamp_modul.mp4" type="video/mp4">
             </video>
             <div class="result-label-container"></div>
           </div>
@@ -2019,21 +2061,23 @@
         <!-- Bottom: Two videos side by side -->
         <div class="real-video-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
           <div class="video-col">
-            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code></div>
-            <video class="real-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
-              <source src="video/real/draw_pattern/ep1_framesamp_modul.mp4" type="video/mp4">
-            </video>
-            <div class="result-label-container"></div>
-          </div>
-          <div class="video-col">
             <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">GroundSG</span>+<code>QwenVL</code></div>
             <video class="real-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
               <source src="video/real/draw_pattern/ep1_groundsg_qwenvl.mp4" type="video/mp4">
             </video>
             <div class="result-label-container"></div>
           </div>
+          <div class="video-col">
+            <div style="text-align: center; font-weight: 600; color: #3273dc; margin-bottom: 0.5rem;"><span style="font-variant: small-caps;">FrameSamp</span>+<code>Modul</code></div>
+            <video class="real-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
+              <source src="video/real/draw_pattern/ep1_framesamp_modul.mp4" type="video/mp4">
+            </video>
+            <div class="result-label-container"></div>
+          </div>
         </div>
       </div>
+
+      <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem; line-height: 1.4; margin-left: 2rem; margin-right: 2rem;">Red-bordered frames indicate the video-based initial observation before execution. For the GroundSG policy, we overlay the predicted grounding information as red dots on the right-view images for visualization.</p>
   
     </div>
   </section>
@@ -4225,6 +4269,141 @@
     "video/sim/imitation/routestick/ep9_memer.mp4": false, 
     "video/sim/imitation/routestick/ep10_memer.mp4": false, 
 
+    "video/sim/counting/pickxtimes/ep3_sam2act.mp4": false,
+    "video/sim/counting/pickxtimes/ep4_sam2act.mp4": false,
+    "video/sim/counting/pickxtimes/ep10_sam2act.mp4": false,
+    "video/sim/counting/pickxtimes/ep8_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep3_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep4_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep1_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep5_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep9_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep2_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep6_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep7_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep8_sam2act.mp4": false,
+    "video/sim/counting/stopcube/ep10_sam2act.mp4": false,
+    "video/sim/counting/swingxtimes/ep1_sam2act.mp4": false,
+    "video/sim/counting/swingxtimes/ep6_sam2act.mp4": false,
+    "video/sim/counting/swingxtimes/ep3_sam2act.mp4": false,
+    "video/sim/counting/swingxtimes/ep2_sam2act.mp4": false,
+    "video/sim/counting/swingxtimes/ep4_sam2act.mp4": false,
+    "video/sim/counting/swingxtimes/ep5_sam2act.mp4": false,
+    "video/sim/counting/swingxtimes/ep8_sam2act.mp4": false,
+    "video/sim/counting/swingxtimes/ep9_sam2act.mp4": false,
+    "video/sim/counting/swingxtimes/ep10_sam2act.mp4": false,
+    "video/sim/counting/binfill/ep2_sam2act.mp4": false,
+    "video/sim/counting/binfill/ep8_sam2act.mp4": false,
+    "video/sim/counting/binfill/ep9_sam2act.mp4": false,
+    "video/sim/counting/binfill/ep10_sam2act.mp4": false,
+    "video/sim/counting/binfill/ep7_sam2act.mp4": false,
+    "video/sim/counting/binfill/ep6_sam2act.mp4": false,
+    "video/sim/counting/binfill/ep4_sam2act.mp4": false,
+    "video/sim/permanence/videounmaskswap/ep3_sam2act.mp4": false,
+    "video/sim/permanence/videounmaskswap/ep4_sam2act.mp4": false,
+    "video/sim/permanence/videounmaskswap/ep1_sam2act.mp4": false,
+    "video/sim/permanence/videounmaskswap/ep5_sam2act.mp4": false,
+    "video/sim/permanence/videounmaskswap/ep2_sam2act.mp4": false,
+    "video/sim/permanence/videounmaskswap/ep6_sam2act.mp4": false,
+    "video/sim/permanence/videounmaskswap/ep8_sam2act.mp4": false,
+    "video/sim/permanence/videounmaskswap/ep10_sam2act.mp4": false,
+    "video/sim/permanence/videounmaskswap/ep9_sam2act.mp4": false,
+    "video/sim/permanence/videounmask/ep3_sam2act.mp4": false,
+    "video/sim/permanence/videounmask/ep6_sam2act.mp4": false,
+    "video/sim/permanence/videounmask/ep4_sam2act.mp4": false,
+    "video/sim/permanence/videounmask/ep7_sam2act.mp4": false,
+    "video/sim/permanence/videounmask/ep5_sam2act.mp4": false,
+    "video/sim/permanence/videounmask/ep8_sam2act.mp4": false,
+    "video/sim/permanence/videounmask/ep9_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmaskswap/ep3_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmaskswap/ep4_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmaskswap/ep8_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmaskswap/ep7_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmaskswap/ep1_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmaskswap/ep9_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmaskswap/ep10_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmask/ep2_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmask/ep3_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmask/ep5_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmask/ep7_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmask/ep8_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmask/ep4_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmask/ep9_sam2act.mp4": false,
+    "video/sim/permanence/buttonunmask/ep10_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep1_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep4_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep5_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep2_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep3_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep7_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep9_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep6_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep8_sam2act.mp4": false,
+    "video/sim/reference/videorepick/ep10_sam2act.mp4": false,
+    "video/sim/reference/videoplacebutton/ep4_sam2act.mp4": false,
+    "video/sim/reference/videoplacebutton/ep1_sam2act.mp4": false,
+    "video/sim/reference/videoplacebutton/ep6_sam2act.mp4": false,
+    "video/sim/reference/videoplacebutton/ep5_sam2act.mp4": false,
+    "video/sim/reference/videoplacebutton/ep2_sam2act.mp4": false,
+    "video/sim/reference/videoplacebutton/ep3_sam2act.mp4": false,
+    "video/sim/reference/videoplacebutton/ep7_sam2act.mp4": false,
+    "video/sim/reference/videoplacebutton/ep9_sam2act.mp4": false,
+    "video/sim/reference/videoplacebutton/ep10_sam2act.mp4": false,
+    "video/sim/reference/videoplaceorder/ep8_sam2act.mp4": false,
+    "video/sim/reference/videoplaceorder/ep5_sam2act.mp4": false,
+    "video/sim/reference/videoplaceorder/ep6_sam2act.mp4": false,
+    "video/sim/reference/videoplaceorder/ep7_sam2act.mp4": false,
+    "video/sim/reference/videoplaceorder/ep3_sam2act.mp4": false,
+    "video/sim/reference/videoplaceorder/ep4_sam2act.mp4": false,
+    "video/sim/reference/videoplaceorder/ep10_sam2act.mp4": false,
+    "video/sim/reference/videoplaceorder/ep9_sam2act.mp4": false,
+    "video/sim/reference/pickhighlight/ep3_sam2act.mp4": false,
+    "video/sim/reference/pickhighlight/ep6_sam2act.mp4": false,
+    "video/sim/reference/pickhighlight/ep8_sam2act.mp4": false,
+    "video/sim/reference/pickhighlight/ep7_sam2act.mp4": false,
+    "video/sim/reference/pickhighlight/ep9_sam2act.mp4": false,
+    "video/sim/reference/pickhighlight/ep10_sam2act.mp4": false,
+    "video/sim/reference/pickhighlight/ep5_sam2act.mp4": false,
+    "video/sim/reference/pickhighlight/ep4_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep2_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep7_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep8_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep5_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep9_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep1_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep6_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep3_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep10_sam2act.mp4": false,
+    "video/sim/imitation/insertpeg/ep4_sam2act.mp4": false,
+    "video/sim/imitation/movecube/ep1_sam2act.mp4": false,
+    "video/sim/imitation/movecube/ep8_sam2act.mp4": false,
+    "video/sim/imitation/movecube/ep4_sam2act.mp4": false,
+    "video/sim/imitation/movecube/ep2_sam2act.mp4": false,
+    "video/sim/imitation/movecube/ep7_sam2act.mp4": false,
+    "video/sim/imitation/movecube/ep6_sam2act.mp4": false,
+    "video/sim/imitation/movecube/ep5_sam2act.mp4": false,
+    "video/sim/imitation/movecube/ep9_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep1_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep6_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep2_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep5_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep3_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep8_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep7_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep4_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep10_sam2act.mp4": false,
+    "video/sim/imitation/drawpattern/ep9_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep2_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep6_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep5_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep1_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep4_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep3_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep7_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep8_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep9_sam2act.mp4": false,
+    "video/sim/imitation/routestick/ep10_sam2act.mp4": false
+
   };
 
   // Real robot video results - same format: path => false for Failure, omit or true for Success
@@ -4631,7 +4810,7 @@
     
     // Update videos and labels
     const videos = taskRow.querySelectorAll('.real-video');
-    const models = ['framesamp_modul', 'groundsg_qwenvl'];
+    const models = ['groundsg_qwenvl', 'framesamp_modul'];
     
     videos.forEach((video, index) => {
       const source = video.querySelector('source');
