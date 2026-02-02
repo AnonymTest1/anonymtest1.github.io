@@ -845,6 +845,10 @@
           <img src="image/full_results.jpg" alt="Full Results" style="width: 100%; display: block; border-radius: 4px;">
         </figure>
       </div>
+      <p style="text-align: center; margin-top: 1rem; font-size: 0.95rem; color: #333;">
+        <span style="color: #e74c3c; font-weight: 600;">Red</span> marks the best per section;
+        <span style="display: inline-block; vertical-align: middle; width: 0.9em; height: 0.6em; border: 2px solid #e74c3c; margin-right: 0.15em;"></span> marks the overall best for non-oracle models.
+      </p>
     </details>
     
   </div>
@@ -882,26 +886,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/binfill/ep1_pi05.mp4" type="video/mp4">
@@ -910,26 +914,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/binfill/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -951,26 +955,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/pickxtimes/ep1_pi05.mp4" type="video/mp4">
@@ -979,26 +983,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/pickxtimes/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1019,7 +1023,7 @@
           <div class="demo-video-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
-                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_oracle">GroundSG+Oracle</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul">FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
+                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option><option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option><option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option><option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option><option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option><option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option><option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option><option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option><option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option><option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option><option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option><option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option><option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option><option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option><option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option><option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option><option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option><option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option><option value="sam2act">Other Methods: SAM2Act+</option><option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/swingxtimes/ep1_pi05.mp4" type="video/mp4">
@@ -1027,7 +1031,7 @@
             </div>
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
-                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_oracle">GroundSG+Oracle</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul" selected>FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
+                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option><option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option><option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option><option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option><option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option><option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option><option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option><option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option><option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option><option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option><option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option><option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option><option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option><option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option><option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option><option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option><option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option><option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option><option value="sam2act">Other Methods: SAM2Act+</option><option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/swingxtimes/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1048,7 +1052,7 @@
           <div class="demo-video-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
-                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_oracle">GroundSG+Oracle</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul">FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
+                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option><option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option><option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option><option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option><option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option><option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option><option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option><option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option><option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option><option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option><option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option><option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option><option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option><option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option><option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option><option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option><option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option><option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option><option value="sam2act">Other Methods: SAM2Act+</option><option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/stopcube/ep1_pi05.mp4" type="video/mp4">
@@ -1056,7 +1060,7 @@
             </div>
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
-                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">SimpleSG+Oracle</option><option value="simplesg_gemini">SimpleSG+Gemini</option><option value="simplesg_qwenvl">SimpleSG+QwenVL</option><option value="groundsg_oracle">GroundSG+Oracle</option><option value="groundsg_gemini">GroundSG+Gemini</option><option value="groundsg_qwenvl">GroundSG+QwenVL</option><option value="tokendrop_context">TokenDrop+Context</option><option value="tokendrop_modul">TokenDrop+Modul</option><option value="tokendrop_expert">TokenDrop+Expert</option><option value="framesamp_context">FrameSamp+Context</option><option value="framesamp_modul" selected>FrameSamp+Modul</option><option value="framesamp_expert">FrameSamp+Expert</option><option value="ttt_context">TTT+Context</option><option value="ttt_modul">TTT+Modul</option><option value="ttt_expert">TTT+Expert</option><option value="rmt_context">RMT+Context</option><option value="rmt_modul">RMT+Modul</option><option value="rmt_expert">RMT+Expert</option><option value="sam2act">SAM2Act+</option><option value="memer">MemER</option>
+                <option value="pi05">π₀.₅ (Baseline)</option><option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option><option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option><option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option><option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option><option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option><option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option><option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option><option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option><option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option><option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option><option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option><option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option><option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option><option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option><option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option><option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option><option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option><option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option><option value="sam2act">Other Methods: SAM2Act+</option><option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/counting/stopcube/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1083,26 +1087,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/permanence/videounmask/ep1_pi05.mp4" type="video/mp4">
@@ -1111,26 +1115,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/permanence/videounmask/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1151,26 +1155,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/permanence/buttonunmask/ep1_pi05.mp4" type="video/mp4">
@@ -1179,26 +1183,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/permanence/buttonunmask/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1220,26 +1224,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/permanence/videounmaskswap/ep1_pi05.mp4" type="video/mp4">
@@ -1248,26 +1252,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/permanence/videounmaskswap/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1289,26 +1293,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/permanence/buttonunmaskswap/ep1_pi05.mp4" type="video/mp4">
@@ -1317,26 +1321,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/permanence/buttonunmaskswap/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1363,26 +1367,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/reference/pickhighlight/ep1_pi05.mp4" type="video/mp4">
@@ -1391,26 +1395,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/reference/pickhighlight/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1431,26 +1435,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/reference/videorepick/ep1_pi05.mp4" type="video/mp4">
@@ -1459,26 +1463,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/reference/videorepick/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1499,26 +1503,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/reference/videoplacebutton/ep1_pi05.mp4" type="video/mp4">
@@ -1527,26 +1531,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/reference/videoplacebutton/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1567,26 +1571,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/reference/videoplaceorder/ep1_pi05.mp4" type="video/mp4">
@@ -1595,26 +1599,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/reference/videoplaceorder/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1641,26 +1645,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/imitation/movecube/ep1_pi05.mp4" type="video/mp4">
@@ -1669,26 +1673,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/imitation/movecube/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1709,26 +1713,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/imitation/insertpeg/ep1_pi05.mp4" type="video/mp4">
@@ -1737,26 +1741,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/imitation/insertpeg/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1777,26 +1781,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/imitation/drawpattern/ep1_pi05.mp4" type="video/mp4">
@@ -1805,26 +1809,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/imitation/drawpattern/ep1_framesamp_modul.mp4" type="video/mp4">
@@ -1845,26 +1849,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul">FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul">MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/imitation/routestick/ep1_pi05.mp4" type="video/mp4">
@@ -1873,26 +1877,26 @@
             <div class="demo-video-col">
               <select class="sim-model-selector" onchange="switchSimModel(this)" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 4px; border: 1px solid #ddd;">
                 <option value="pi05">π₀.₅ (Baseline)</option>
-                <option value="simplesg_oracle">SimpleSG+Oracle</option>
-                <option value="simplesg_gemini">SimpleSG+Gemini</option>
-                <option value="simplesg_qwenvl">SimpleSG+QwenVL</option>
-                <option value="groundsg_oracle">GroundSG+Oracle</option>
-                <option value="groundsg_gemini">GroundSG+Gemini</option>
-                <option value="groundsg_qwenvl">GroundSG+QwenVL</option>
-                <option value="tokendrop_context">TokenDrop+Context</option>
-                <option value="tokendrop_modul">TokenDrop+Modul</option>
-                <option value="tokendrop_expert">TokenDrop+Expert</option>
-                <option value="framesamp_context">FrameSamp+Context</option>
-                <option value="framesamp_modul" selected>FrameSamp+Modul</option>
-                <option value="framesamp_expert">FrameSamp+Expert</option>
-                <option value="ttt_context">TTT+Context</option>
-                <option value="ttt_modul">TTT+Modul</option>
-                <option value="ttt_expert">TTT+Expert</option>
-                <option value="rmt_context">RMT+Context</option>
-                <option value="rmt_modul">RMT+Modul</option>
-                <option value="rmt_expert">RMT+Expert</option>
-                <option value="sam2act">SAM2Act+</option>
-                <option value="memer">MemER</option>
+                <option value="simplesg_oracle">MME-VLA-Symbolic: SimpleSG+Oracle</option>
+                <option value="simplesg_gemini">MME-VLA-Symbolic: SimpleSG+Gemini</option>
+                <option value="simplesg_qwenvl">MME-VLA-Symbolic: SimpleSG+QwenVL</option>
+                <option value="groundsg_oracle">MME-VLA-Symbolic: GroundSG+Oracle</option>
+                <option value="groundsg_gemini">MME-VLA-Symbolic: GroundSG+Gemini</option>
+                <option value="groundsg_qwenvl">MME-VLA-Symbolic: GroundSG+QwenVL</option>
+                <option value="tokendrop_context">MME-VLA-Perceptual: TokenDrop+Context</option>
+                <option value="tokendrop_modul">MME-VLA-Perceptual: TokenDrop+Modul</option>
+                <option value="tokendrop_expert">MME-VLA-Perceptual: TokenDrop+Expert</option>
+                <option value="framesamp_context">MME-VLA-Perceptual: FrameSamp+Context</option>
+                <option value="framesamp_modul" selected>MME-VLA-Perceptual: FrameSamp+Modul</option>
+                <option value="framesamp_expert">MME-VLA-Perceptual: FrameSamp+Expert</option>
+                <option value="ttt_context">MME-VLA-Recurrent: TTT+Context</option>
+                <option value="ttt_modul">MME-VLA-Recurrent: TTT+Modul</option>
+                <option value="ttt_expert">MME-VLA-Recurrent: TTT+Expert</option>
+                <option value="rmt_context">MME-VLA-Recurrent: RMT+Context</option>
+                <option value="rmt_modul">MME-VLA-Recurrent: RMT+Modul</option>
+                <option value="rmt_expert">MME-VLA-Recurrent: RMT+Expert</option>
+                <option value="sam2act">Other Methods: SAM2Act+</option>
+                <option value="memer">Other Methods: MemER</option>
               </select>
               <video class="demo-video" autoplay muted loop playsinline controls style="width: 100%; border-radius: 4px;">
                 <source src="video/sim/imitation/routestick/ep1_framesamp_modul.mp4" type="video/mp4">
