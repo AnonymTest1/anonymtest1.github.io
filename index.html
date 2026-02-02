@@ -272,9 +272,16 @@
       max-width: 100%;
     }
     
-    /* Real Robot: align model names at top (default top alignment) */
+    /* Real Robot: same-height columns, model names at top, videos bottom-aligned */
     .real-video-row {
-      align-items: start;
+      align-items: stretch;
+    }
+    .real-video-row .video-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .real-video-row .video-col .real-video {
+      margin-top: auto;
     }
   </style>
 </head>
