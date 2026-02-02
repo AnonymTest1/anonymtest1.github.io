@@ -1904,7 +1904,7 @@
     </div>
 
     <!-- The task goals come from an earlier version of the dataset used for training. Although the wording differs slightly from the final version, this should not affect the results. -->
-    <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem; line-height: 1.4; margin-left: 11rem; margin-right: 11rem;">For demonstration purposes, we visualize only the first 10 episodes for each task (the full evaluation contains 50). Red-bordered frames indicate the video-based initial observation before execution. For the GroundSG policy, we overlay the predicted grounding as yellow dots on the front-view images for visualization.</p>
+    <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem; line-height: 1.4; margin-left: 11rem; margin-right: 11rem;">For demonstration purposes, we visualize only the first 10 episodes for each task (the full evaluation contains 50). In simulation experiments, we use the front-view images for memory feature construction or VLM subgoal prediction. For the GroundSG policy, we overlay the predicted grounding information as yellow dots on the front-view images for visualization when it is available. Red-bordered frames indicate the video-based initial observation before execution. </p>
 
 
   </div>
@@ -2077,7 +2077,7 @@
         </div>
       </div>
 
-      <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem; line-height: 1.4; margin-left: 2rem; margin-right: 2rem;">Red-bordered frames indicate the video-based initial observation before execution. For the GroundSG policy, we overlay the predicted grounding information as red dots on the right-view images for visualization.</p>
+      <p style="font-size: 0.8rem; color: #666; margin-top: 0.5rem; line-height: 1.4; margin-left: 0rem; margin-right: 0rem;"> In real-world experiments, we use the right-shoulder view images for memory feature construction or VLM subgoal prediction. For the GroundSG policy, we overlay the predicted grounding information as red dots on the right-shoulder view images for visualization when it is available. Red-bordered frames indicate the video-based initial observation before execution. </p>
   
     </div>
   </section>
